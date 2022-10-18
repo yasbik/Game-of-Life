@@ -55,84 +55,84 @@ public class LifeBoard {
             if (j == 0) {
                 // top left
                 temp = new Cell[3];
-                temp[0].setCurrentState(cell[i][j+1].getCurrentState());
-                temp[1].setCurrentState(cell[i+1][j].getCurrentState());
-                temp[2].setCurrentState(cell[i+1][j+1].getCurrentState());
+                temp[0] = cell[i][j+1];
+                temp[1] = cell[i+1][j];
+                temp[2] = cell[i+1][j+1];
 
             }
             else if (j == columns-1) {
                 // top right
                 temp = new Cell[3];
-                temp[0].setCurrentState(cell[i][j-1].getCurrentState());
-                temp[1].setCurrentState(cell[i+1][j-1].getCurrentState());
-                temp[2].setCurrentState(cell[i+1][j].getCurrentState());
+                temp[0] = cell[i][j-1];
+                temp[1] = cell[i+1][j-1];
+                temp[2] = cell[i+1][j];
             }
             else {
                 // top edge middle
                 temp = new Cell[5];
-                temp[0].setCurrentState(cell[i][j-1].getCurrentState());
-                temp[1].setCurrentState(cell[i][j+1].getCurrentState());
-                temp[2].setCurrentState(cell[i+1][j-1].getCurrentState());
-                temp[3].setCurrentState(cell[i+1][j].getCurrentState());
-                temp[4].setCurrentState(cell[i+1][j+1].getCurrentState());
-
+                temp[0] = cell[i][j-1];
+                temp[1] = cell[i][j+1];
+                temp[2] = cell[i+1][j-1];
+                temp[3] = cell[i+1][j];
+                temp[4] = cell[i+1][j+1];
             }
         }
         else if (i == rows-1) {
             if (j == 0) {
                 // bottom left
                 temp = new Cell[3];
-                temp[0].setCurrentState(cell[i-1][j].getCurrentState());
-                temp[1].setCurrentState(cell[i-1][j+1].getCurrentState());
-                temp[2].setCurrentState(cell[i][j+1].getCurrentState());
+                temp[0] = cell[i-1][j];
+                temp[1] = cell[i-1][j+1];
+                temp[2] = cell[i][j+1];
             }
             else if (j == columns-1) {
                 // bottom right
                 temp = new Cell[3];
-                temp[0].setCurrentState(cell[i-1][j-1].getCurrentState());
-                temp[1].setCurrentState(cell[i-1][j].getCurrentState());
-                temp[2].setCurrentState(cell[i][j-1].getCurrentState());
+                temp[0] = cell[i-1][j-1];
+                temp[1] = cell[i-1][j];
+                temp[2] = cell[i][j-1];
             }
             else {
                 // bottom edge middle
                 temp = new Cell[5];
-                temp[0].setCurrentState(cell[i-1][j-1].getCurrentState());
-                temp[1].setCurrentState(cell[i-1][j].getCurrentState());
-                temp[2].setCurrentState(cell[i-1][j+1].getCurrentState());
-                temp[3].setCurrentState(cell[i][j-1].getCurrentState());
-                temp[4].setCurrentState(cell[i][j+1].getCurrentState());
+                temp[0] = cell[i-1][j-1];
+                temp[1] = cell[i-1][j];
+                temp[2] = cell[i-1][j+1];
+                temp[3] = cell[i][j-1];
+                temp[4] = cell[i][j+1];
             }
         }
         else if (j == 0) {
             // left edge middle
             temp = new Cell[5];
-            temp[0].setCurrentState(cell[i-1][j].getCurrentState());
-            temp[1].setCurrentState(cell[i-1][j+1].getCurrentState());
-            temp[2].setCurrentState(cell[i][j+1].getCurrentState());
-            temp[3].setCurrentState(cell[i+1][j].getCurrentState());
-            temp[4].setCurrentState(cell[i+1][j+1].getCurrentState());
+            temp[0] = cell[i-1][j];
+            temp[1] = cell[i-1][j+1];
+            temp[2] = cell[i][j+1];
+            temp[3] = cell[i+1][j];
+            temp[4] = cell[i+1][j+1];
         }
         else if (j == columns-1) {
             // right edge
             temp = new Cell[5];
-            temp[0].setCurrentState(cell[i-1][j-1].getCurrentState());
-            temp[1].setCurrentState(cell[i-1][j].getCurrentState());
-            temp[2].setCurrentState(cell[i][j-1].getCurrentState());
-            temp[3].setCurrentState(cell[i+1][j-1].getCurrentState());
-            temp[4].setCurrentState(cell[i+1][j].getCurrentState());
+            temp[0] = cell[i-1][j-1];
+            temp[1] = cell[i-1][j];
+            temp[2] = cell[i][j-1];
+            temp[3] = cell[i+1][j-1];
+            temp[4] = cell[i+1][j];
         }
         else {
             // middle
             temp = new Cell[8];
-            temp[0].setCurrentState(cell[i-1][j-1].getCurrentState());
-            temp[1].setCurrentState(cell[i-1][j].getCurrentState());
-            temp[2].setCurrentState(cell[i-1][j+1].getCurrentState());
-            temp[3].setCurrentState(cell[i][j-1].getCurrentState());
-            temp[4].setCurrentState(cell[i][j+1].getCurrentState());
-            temp[5].setCurrentState(cell[i+1][j-1].getCurrentState());
-            temp[6].setCurrentState(cell[i+1][j].getCurrentState());
-            temp[7].setCurrentState(cell[i+1][j+1].getCurrentState());
-        }   
+            temp[0] = cell[i-1][j-1];
+            temp[1] = cell[i-1][j];
+            temp[2] = cell[i-1][j+1];
+            temp[3] = cell[i][j-1];
+            temp[4] = cell[i][j+1];
+            temp[5] = cell[i+1][j-1];
+            temp[6] = cell[i+1][j];
+            temp[7] = cell[i+1][j+1];
+        } 
+          
         return temp;   
     }
 
@@ -174,6 +174,99 @@ public class LifeBoard {
         }
     }
 
+
+
+
+
+    // // method to initialize the neighbours of each cell
+    // private Cell[] initializeNeighbours(Cell[][] cell, int i, int j) {
+
+    //     Cell[] temp = null;
+
+    //     if (i == 0) {
+    //         if (j == 0) {
+    //             // top left
+    //             temp = new Cell[3];
+    //             temp[0].setCurrentState(cell[i][j+1].getCurrentState());
+    //             temp[1].setCurrentState(cell[i+1][j].getCurrentState());
+    //             temp[2].setCurrentState(cell[i+1][j+1].getCurrentState());
+
+    //         }
+    //         else if (j == columns-1) {
+    //             // top right
+    //             temp = new Cell[3];
+    //             temp[0].setCurrentState(cell[i][j-1].getCurrentState());
+    //             temp[1].setCurrentState(cell[i+1][j-1].getCurrentState());
+    //             temp[2].setCurrentState(cell[i+1][j].getCurrentState());
+    //         }
+    //         else {
+    //             // top edge middle
+    //             temp = new Cell[5];
+    //             temp[0].setCurrentState(cell[i][j-1].getCurrentState());
+    //             temp[1].setCurrentState(cell[i][j+1].getCurrentState());
+    //             temp[2].setCurrentState(cell[i+1][j-1].getCurrentState());
+    //             temp[3].setCurrentState(cell[i+1][j].getCurrentState());
+    //             temp[4].setCurrentState(cell[i+1][j+1].getCurrentState());
+
+    //         }
+    //     }
+    //     else if (i == rows-1) {
+    //         if (j == 0) {
+    //             // bottom left
+    //             temp = new Cell[3];
+    //             temp[0].setCurrentState(cell[i-1][j].getCurrentState());
+    //             temp[1].setCurrentState(cell[i-1][j+1].getCurrentState());
+    //             temp[2].setCurrentState(cell[i][j+1].getCurrentState());
+    //         }
+    //         else if (j == columns-1) {
+    //             // bottom right
+    //             temp = new Cell[3];
+    //             temp[0].setCurrentState(cell[i-1][j-1].getCurrentState());
+    //             temp[1].setCurrentState(cell[i-1][j].getCurrentState());
+    //             temp[2].setCurrentState(cell[i][j-1].getCurrentState());
+    //         }
+    //         else {
+    //             // bottom edge middle
+    //             temp = new Cell[5];
+    //             temp[0].setCurrentState(cell[i-1][j-1].getCurrentState());
+    //             temp[1].setCurrentState(cell[i-1][j].getCurrentState());
+    //             temp[2].setCurrentState(cell[i-1][j+1].getCurrentState());
+    //             temp[3].setCurrentState(cell[i][j-1].getCurrentState());
+    //             temp[4].setCurrentState(cell[i][j+1].getCurrentState());
+    //         }
+    //     }
+    //     else if (j == 0) {
+    //         // left edge middle
+    //         temp = new Cell[5];
+    //         temp[0].setCurrentState(cell[i-1][j].getCurrentState());
+    //         temp[1].setCurrentState(cell[i-1][j+1].getCurrentState());
+    //         temp[2].setCurrentState(cell[i][j+1].getCurrentState());
+    //         temp[3].setCurrentState(cell[i+1][j].getCurrentState());
+    //         temp[4].setCurrentState(cell[i+1][j+1].getCurrentState());
+    //     }
+    //     else if (j == columns-1) {
+    //         // right edge
+    //         temp = new Cell[5];
+    //         temp[0].setCurrentState(cell[i-1][j-1].getCurrentState());
+    //         temp[1].setCurrentState(cell[i-1][j].getCurrentState());
+    //         temp[2].setCurrentState(cell[i][j-1].getCurrentState());
+    //         temp[3].setCurrentState(cell[i+1][j-1].getCurrentState());
+    //         temp[4].setCurrentState(cell[i+1][j].getCurrentState());
+    //     }
+    //     else {
+    //         // middle
+    //         temp = new Cell[8];
+    //         temp[0].setCurrentState(cell[i-1][j-1].getCurrentState());
+    //         temp[1].setCurrentState(cell[i-1][j].getCurrentState());
+    //         temp[2].setCurrentState(cell[i-1][j+1].getCurrentState());
+    //         temp[3].setCurrentState(cell[i][j-1].getCurrentState());
+    //         temp[4].setCurrentState(cell[i][j+1].getCurrentState());
+    //         temp[5].setCurrentState(cell[i+1][j-1].getCurrentState());
+    //         temp[6].setCurrentState(cell[i+1][j].getCurrentState());
+    //         temp[7].setCurrentState(cell[i+1][j+1].getCurrentState());
+    //     }   
+    //     return temp;   
+    // }
 
 
 }
