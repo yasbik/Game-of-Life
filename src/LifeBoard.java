@@ -132,13 +132,18 @@ public class LifeBoard {
             temp[6] = cell[i+1][j];
             temp[7] = cell[i+1][j+1];
         } 
-          
+
         return temp;   
     }
 
     // method to advance board to the next generation
     public void nextGeneration() {
 
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                cell[i][j].setCurrentState(cell[i][j].calculateFutureState());
+            }
+        }
     }
 
     // method to update the status (alive or dead) of every cell on the board

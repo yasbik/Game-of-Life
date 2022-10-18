@@ -48,23 +48,22 @@ public class Cell {
 
     }
 
-    public boolean calculateNextState() {
+    public boolean calculateFutureState() {
 
-        boolean state = this.currentState;
         int livingNeighbours = calculateLivingNeighbours();
 
-        if (state) {
+        if (currentState) {
             if (livingNeighbours < 2 || livingNeighbours > 3) {
-                state = false;
+                futureState = false;
             }
         }
         else {
             if (livingNeighbours == 3) {
-                state = true;
+                futureState = true;
             }
         }
 
-        return state;
+        return futureState;
         
     }
 
