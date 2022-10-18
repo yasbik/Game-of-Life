@@ -13,6 +13,7 @@ public class LifeBoard {
 
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
+                cell[i][j] = new Cell();
                 cell[i][j].setCurrentState(false);
             }
         }
@@ -34,6 +35,7 @@ public class LifeBoard {
 
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
+                cell[i][j] = new Cell();
                 cell[i][j].setCurrentState(state[i][j]);
             }
         }
@@ -141,7 +143,13 @@ public class LifeBoard {
 
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
-                cell[i][j].setCurrentState(cell[i][j].calculateFutureState());
+                cell[i][j].calculateFutureState();
+            }
+        }
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                cell[i][j].setCurrentState(cell[i][j].getFutureState());;
             }
         }
     }

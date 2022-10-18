@@ -32,6 +32,11 @@ public class Cell {
         this.futureState = futureState;
     }
 
+    public Cell() {
+        currentState = false;
+        futureState = false;
+    }
+
 
 
     public int calculateLivingNeighbours() {
@@ -56,10 +61,16 @@ public class Cell {
             if (livingNeighbours < 2 || livingNeighbours > 3) {
                 futureState = false;
             }
+            else {
+                futureState = true;
+            }
         }
         else {
             if (livingNeighbours == 3) {
                 futureState = true;
+            }
+            else {
+                futureState = false;
             }
         }
 
