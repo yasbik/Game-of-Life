@@ -2,11 +2,6 @@ public class Cell {
     
     private boolean currentState;
     private boolean futureState;
-    
-
-    // Cell[] middleNeighbours = new Cell[8];
-    // Cell[] edgeNeighbours = new Cell[5];
-    // Cell[] cornerNeighbours = new Cell[3];
 
     Cell[] neighbours;
 
@@ -35,6 +30,42 @@ public class Cell {
 
     public void setFutureState(boolean futureState) {
         this.futureState = futureState;
+    }
+
+
+
+    public int calculateLivingNeighbours() {
+
+        int livingNeighbours = 0;
+
+        for (int i = 0; i < neighbours.length; i++) {
+            if (neighbours[i].currentState) {
+                livingNeighbours++;
+            }
+        }
+
+        return livingNeighbours;
+
+    }
+
+    public boolean calculateNextState() {
+
+        boolean state = this.currentState;
+        int livingNeighbours = calculateLivingNeighbours();
+
+        if (state) {
+            if (livingNeighbours < 2 || livingNeighbours > 3) {
+                state = false;
+            }
+        }
+        else {
+            if (livingNeighbours == 3) {
+                state = true;
+            }
+        }
+
+        return state;
+        
     }
 
 }

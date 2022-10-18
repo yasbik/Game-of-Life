@@ -144,16 +144,34 @@ public class LifeBoard {
     // method to update the status (alive or dead) of every cell on the board
     public void setState(boolean[][] newState) {
 
+        for (int i = 0; i < newState.length; i++) {
+            for (int j = 0; j < newState[0].length; j++) {
+                cell[i][j].setCurrentState(newState[i][j]);
+            }
+        }
+
     }
 
     // method to fill in the currentState parameter to match every cell on the board (alive or dead)
     public void getState(boolean[][] currentState)  {
 
+        for (int i = 0; i < currentState.length; i++) {
+            for (int j = 0; j < currentState[0].length; j++) {
+
+                currentState[i][j] = cell[i][j].getCurrentState();
+            }
+        }
     }
 
     // method to change the status of the cell at row r and column c on the board (from alive to dead, or dead to alive)
     public void toggleState(int r, int c) {
 
+        if (cell[r][c].getCurrentState()) {
+            cell[r][c].setCurrentState(false);
+        }
+        else {
+            cell[r][c].setCurrentState(true);
+        }
     }
 
 
