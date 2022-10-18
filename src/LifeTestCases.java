@@ -1,18 +1,17 @@
+// this class multiple sets of preconfigured values to test the board
 public class LifeTestCases {
 
-    // A class that stores a set of test configurations for the Game of Life
-    // as a simple 2D array of Strings. X's are living cells, any other
-    // character is a dead cell.
-
+    // X's replresent living cells, dots represent dead cells
     private static String[][] testBoards = {
-            // 1. A test case that should die out after exactly 8 generations
+
+            // Board number 1 - This tests all the rules and all cells should be dead in 8 generations
             { "       ",
                     "  XXX  ",
                     " XXXXX ",
                     "  XXXX ",
                     "       " },
 
-            // 2. A glider gun
+            // Board number 1 - A Glider Gun
             { "........................................",
                     "........................................",
                     "........................................",
@@ -42,7 +41,7 @@ public class LifeTestCases {
                     ".........................X..............",
                     "........................................" },
 
-            // 3. Eight gliders that collide to form a glider gun
+            // Board number 3 - Eight gliders that collide to form a glider gun
             { "...........................X....................................................",
                     "...........................X.X................X.................................",
                     "...........................XX.................X.X...............................",
@@ -76,7 +75,7 @@ public class LifeTestCases {
                     "................................................................................",
                     "................................................................................" },
 
-            // 4. A "harvester"
+            // Board number 4 - A "harvester"
             { "........................................",
                     "......................................XX",
                     ".....................................X.X",
@@ -118,8 +117,7 @@ public class LifeTestCases {
                     "........................................",
                     "........................................" },
 
-            // 5. An "r-pentomino". It is unstable for 1103 generations if the board is
-            // infinite.
+            // Board number 5 - An "r-pentomino". It is unstable for 1103 generations if the board is infinite.
             { "........................................",
                     "........................................",
                     "........................................",
@@ -163,20 +161,24 @@ public class LifeTestCases {
 
     };
 
-    // This will convert the selected test case from an array of Strings into
-    // the 2D array of booleans used in Assignment 2.
+    // method to convert the array of strings to boolean
     public static boolean[][] getTest(int index) {
+
+        // take the string input
         String[] board = testBoards[index];
+
+        // convert to 2D boolean array
         boolean[][] result = new boolean[board.length][board[0].length()];
-        for (int r = 0; r < board.length; r++)
-            for (int c = 0; c < board[0].length(); c++)
+        for (int r = 0; r < board.length; r++) {
+            for (int c = 0; c < board[0].length(); c++) {
                 result[r][c] = board[r].charAt(c) == 'X';
+            }
+        }
         return result;
     }
 
-    // The user interface also needs to know how many tests are available.
+    // method to return the number of tests
     public static int numTests() {
         return testBoards.length;
     }
-
 }
